@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SHIVASHAKTHI SKYLINE Design System
+   Primary: Gold (logo-inspired)
+   Secondary: Deep Blue / Charcoal
+   Neutral: White & light grey
+*/
+
+@layer base {
+  :root {
+    /* Brand Gold - Primary */
+    --gold: 43 89% 50%;
+    --gold-light: 43 89% 65%;
+    --gold-dark: 43 89% 40%;
+    
+    /* Deep Blue / Charcoal - Secondary */
+    --deep-blue: 215 30% 15%;
+    --deep-blue-light: 215 25% 25%;
+    --charcoal: 220 15% 20%;
+    
+    /* Light backgrounds */
+    --background: 220 20% 97%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Gold primary */
+    --primary: 43 89% 50%;
+    --primary-foreground: 220 15% 12%;
+
+    /* Blue-grey secondary */
+    --secondary: 215 30% 15%;
+    --secondary-foreground: 43 89% 65%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 43 89% 50%;
+    --accent-foreground: 220 15% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 43 89% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 15% 15% / 0.08);
+    --shadow-md: 0 8px 24px -6px hsl(220 15% 15% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(220 15% 15% / 0.18);
+    --shadow-gold: 0 8px 32px -8px hsl(43 89% 50% / 0.35);
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 89% 50%), hsl(43 89% 40%));
+    --gradient-dark: linear-gradient(135deg, hsl(215 30% 15%), hsl(220 15% 12%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 15% 15% / 0.7) 0%, hsl(220 15% 15% / 0.4) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 43 89% 55%;
+    --primary-foreground: 220 15% 10%;
+
+    --secondary: 43 89% 55%;
+    --secondary-foreground: 220 15% 10%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 43 89% 55%;
+    --accent-foreground: 220 15% 10%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 43 89% 55%;
+
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 43 89% 55%;
+    --sidebar-primary-foreground: 220 15% 10%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 43 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Hero section styling */
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+
+  /* Gold accent underline */
+  .gold-underline {
+    @apply relative;
+  }
+  .gold-underline::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-16 h-1 bg-primary rounded-full;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Gold gradient text */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 89% 55%), hsl(43 89% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Container max width */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Stat counter styling */
+  .stat-number {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold text-gradient-gold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Navigation link hover */
+  .nav-link {
+    @apply relative font-medium transition-colors duration-200;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Service card styling */
+  .service-card {
+    @apply bg-card rounded-xl p-6 md:p-8 transition-all duration-300 border border-border;
+  }
+  .service-card:hover {
+    @apply border-primary/30;
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Project card overlay */
+  .project-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  .project-card:hover .project-overlay {
+    @apply opacity-100;
+  }
+
+  /* Button variants */
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold transition-all duration-300;
+    background: var(--gradient-gold);
+    color: hsl(220 15% 12%);
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-gold:hover {
+    @apply scale-105;
+    box-shadow: 0 12px 40px -8px hsl(43 89% 50% / 0.45);
+  }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold transition-all duration-300 border-2 border-primary text-primary;
+  }
+  .btn-outline-gold:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Dark section styling */
+  .section-dark {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  /* Testimonial card */
+  .testimonial-card {
+    @apply bg-card rounded-2xl p-6 md:p-8 relative;
+    box-shadow: var(--shadow-md);
+  }
+  .testimonial-card::before {
+    content: '"';
+    @apply absolute -top-4 left-6 text-7xl font-serif text-primary/20;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}
