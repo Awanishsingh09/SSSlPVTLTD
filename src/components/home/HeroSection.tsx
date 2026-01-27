@@ -17,8 +17,8 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative container px-20 mx-auto">
-        <div className="max-w-6xl">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+        <div className="max-w-6xl w-full">
           {/* Badge */}
           {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 mb-8 animate-fade-up">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -28,18 +28,19 @@ export default function HeroSection() {
           </div> */}
 
           {/* Headline (2 lines only) */}
-          <h1 className="text-4xl md:text-5xl text-white lg:text-6xl xl:text-7xl font-extrabold leading-tight mt-6 mb-2 animate-fade-up animation-delay-100 ">
-           Building Infrastructure.
-           Delivering Possibilities.
+          <h1 className="text-3xl xs:text-4xl md:text-5xl text-white lg:text-6xl xl:text-7xl font-extrabold leading-tight mt-6 mb-2 animate-fade-up animation-delay-100 ">
+            Building Infrastructure.
+            <br className="hidden xs:block" />
+            Delivering Possibilities.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 animate-fade-up animation-delay-200">
+          <p className="text-base xs:text-lg md:text-xl text-muted-foreground max-w-xl mb-10 animate-fade-up animation-delay-200">
             SHIVASHAKTHI SKYLINE PVT LTD is a premier construction and infrastructure development company, delivering excellence in residential, commercial, and infrastructure projects.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-300">
+          <div className="flex flex-col xs:flex-row flex-wrap gap-4 animate-fade-up animation-delay-300">
             <Link to="/projects">
               <Button variant="hero" size="xl">
                 View Our Projects
