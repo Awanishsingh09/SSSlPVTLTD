@@ -59,11 +59,11 @@ export default function Header() {
             : "bg-background"
         }`}
       >
-        <div className="container-custom">
+        <div className="container-custom px-2 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="SHIVASHAKTHI SKYLINE" className="h-24 w-auto" />
+            <Link to="/" className="flex items-center gap-3 ml-0 sm:ml-2">
+              <img src={logo} alt="SHIVASHAKTHI SKYLINE" className="h-16 w-auto sm:h-20" />
             </Link>
 
             {/* Desktop Navigation */}

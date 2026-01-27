@@ -28,9 +28,8 @@ export default function HeroSection() {
           </div> */}
 
           {/* Headline (2 lines only) */}
-          <h1 className="text-3xl xs:text-4xl md:text-5xl text-white lg:text-6xl xl:text-7xl font-extrabold leading-tight mt-6 mb-2 animate-fade-up animation-delay-100 ">
-            Building Infrastructure.
-            <br className="hidden xs:block" />
+          <h1 className="text-2xl xs:text-3xl md:text-5xl text-white lg:text-6xl xl:text-7xl font-extrabold leading-tight mt- xs:mt-4 md:mt-2 mb-2 animate-fade-up animation-delay-100 break-words">
+            Building Infrastructure.<br className="hidden md:block" />
             Delivering Possibilities.
           </h1>
 
@@ -40,7 +39,7 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col xs:flex-row flex-wrap gap-4 animate-fade-up animation-delay-300">
+          <div className="flex flex-col xs:flex-row md:flex-row flex-wrap gap-4 animate-fade-up animation-delay-300">
             <Link to="/projects">
               <Button variant="hero" size="xl">
                 View Our Projects
