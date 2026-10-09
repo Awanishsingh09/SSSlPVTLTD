@@ -1,24 +1,66 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-construction.jpg";
 
 export default function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Mobile WebKit (iOS Safari) and mobile Chrome strict autoplay properties
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "true");
+
+    const tryPlay = () => {
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          // If browser Low Power Mode or battery saver delays autoplay, play on first touch or scroll
+          const handleFirstInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener("touchstart", handleFirstInteraction);
+            window.removeEventListener("scroll", handleFirstInteraction);
+            window.removeEventListener("click", handleFirstInteraction);
+          };
+          window.addEventListener("touchstart", handleFirstInteraction, { once: true, passive: true });
+          window.addEventListener("scroll", handleFirstInteraction, { once: true, passive: true });
+          window.addEventListener("click", handleFirstInteraction, { once: true, passive: true });
+        });
+      }
+    };
+
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener("loadeddata", tryPlay, { once: true });
+      video.addEventListener("canplay", tryPlay, { once: true });
+    }
+  }, []);
+
   return (
     <section
       id="hero-section"
       className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-16"
     >
       {/* Background Video */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden bg-secondary">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          poster={heroImage}
+          preload="auto"
+          poster="/hero-video-poster.jpg"
           className="w-full h-full object-cover scale-105"
         >
+          <source src="/hero-video.mp4" type="video/mp4" />
           <source src="/14742910_1280_720_25fps.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
