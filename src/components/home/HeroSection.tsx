@@ -5,15 +5,24 @@ import heroImage from "@/assets/hero-construction.jpg";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Construction site at sunset"
-          className="w-full h-full object-cover"
-        />
+    <section
+      id="hero-section"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-16"
+    >
+      {/* Background Video */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImage}
+          className="w-full h-full object-cover scale-105"
+        >
+          <source src="/14742910_1280_720_25fps.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}
